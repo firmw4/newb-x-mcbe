@@ -29,7 +29,6 @@ void main() {
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTime.z);
 
-    // Call drawStars with mask calculated in the function
     skyColor += drawStars(skyColor, viewDir, ViewPositionAndTime.w, env.rainFactor, v_fogColor);
 
     #ifdef NL_SHOOTING_STAR

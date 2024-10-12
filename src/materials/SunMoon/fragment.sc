@@ -27,10 +27,10 @@ void main() {
     bool isMoon = ts.x > ts.y;
     if (isMoon) {
       uv = vec2(0.25,0.5)*(floor(uv*vec2(4.0,2.0)) + 0.5 + 10.0*v_pos.xz);
-      color.rgb += g*vec3(0.0,0.5,1.0);
+      color.rgb += g*vec3(0.4,0.2,1.0);
     } else {
       uv = 0.5 + 10.0*v_pos.xz;
-      color.rgb += g*vec3(1.0,0.5,0.0);
+      color.rgb += g*vec3(0.8,0.4,0.2);
     }
 
     if (max(abs(v_pos.x),abs(v_pos.z)) < 0.5/10.0) {
