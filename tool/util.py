@@ -51,7 +51,7 @@ def create_pack_manifest(config: dict) -> dict:
         'settings': [
             {
                 'type': 'label',
-                'text': config['description']['label']
+                'text': config['custom']['label']
             }
         ],
         'subpacks': [],

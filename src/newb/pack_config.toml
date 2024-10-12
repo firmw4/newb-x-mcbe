@@ -1,4 +1,4 @@
-name = "§l§9Newb Gemini§r"
+name = "§l§9NEWB §fx §9GEMINI§r"
 version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
@@ -20,7 +20,7 @@ Copyright (c) %a
 credits = '''
 '''
 
-[description]
+[custom]
 label = '''
 Another variant to improve your Minecraft visual, dynamic lighting and immersive atmosphere. This variant uses visual inspiration and coloring from AI
 
@@ -39,7 +39,7 @@ https://discord.gg/newb-community-844591537430069279
 
 [[subpack]]
 define = "SOFT_CLOUDS"
-materials = ["Clouds"]
+materials = ["Clouds", "RenderChunk"]
 description = '''
 Soft Clouds
 '''

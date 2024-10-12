@@ -103,30 +103,62 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
 }
 
 
+#if NLC_END_SKY == 3
 vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
-  t *= 0.1;
   float a = atan2(viewDir.x, viewDir.z);
 
-  float n1 = 0.5 + 0.5*sin(3.0*a + t + 10.0*viewDir.x*viewDir.y);
-  float n2 = 0.5 + 0.5*sin(5.0*a + 0.5*t + 5.0*n1 + 0.1*sin(40.0*a -4.0*t));
+  float n1 = 0.6 + 0.5*sin(11.0*a + t + 1.0*viewDir.x*viewDir.y);
+  float n2 = 0.6 + 0.5*sin(5.0*a + 0.5*t + 7.0*n1 + 0.1*sin(40.0*a -4.0*t));
 
-  float waves = 0.7*n2*n1 + 0.3*n1;
-
+  float waves = 0.5*n2*n1 + 0.4*n1;
   float grad = 0.5 + 0.5*viewDir.y;
   float streaks = waves*(1.0 - grad*grad*grad);
-  streaks += (1.0-streaks)*smoothstep(1.0-waves, -1.0, viewDir.y);
 
-  float f = 0.3*streaks + 0.7*smoothstep(1.0, -0.5, viewDir.y);
+  streaks += (0.8-streaks)*smoothstep(0.1-waves, -1.0, viewDir.y);
+
+  float f = 0.6*streaks + 0.4*smoothstep(1.0, -0.5, viewDir.y);
   float h = streaks*streaks;
   float g = h*h;
   g *= g;
 
-  vec3 sky = mix(zenithCol, horizonCol, f*f);
-  sky += (0.1*streaks + 2.0*g*g*g + h*h*h)*vec3(2.0,0.5,0.0);
-  sky += 0.25*streaks*spectrum(sin(2.0*viewDir.x*viewDir.y+t));
+  vec3 mixHorizon = mix(horizonCol, vec3(0.2, 0.1, 0.8), 1.0);
+  
+  vec3 sky = mix(zenithCol, mixHorizon, f*f);
+  sky += (0.1*streaks + 2.0*g*g*g + h*h*h) * mixHorizon;
+  sky += 0.2*streaks*horizonCol;
 
   return sky;
 }
+#else
+vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t){
+  #if NLC_END_SKY == 2
+  viewDir.y = smoothstep(0.2,1.0,abs(viewDir.y));
+  #else
+  viewDir.x += 0.03*sin(10.0*viewDir.y - t + viewDir.z);
+  #endif
+
+  float a = atan2(viewDir.x, viewDir.z);
+
+  float s = sin(a*3.0 + t);
+  s = s*s;
+  s *= 0.5 + 0.5*sin(a*8.0 - 0.1*t);
+  float g = smoothstep(0.99-s, -0.7, viewDir.y);
+
+  #if NLC_END_SKY == 1
+  float f = (0.2*g + 0.8*smoothstep(1.0,-0.4,viewDir.y));
+  float h = (0.2*g + 0.8*smoothstep(0.5,-0.8,viewDir.y));
+  vec3 sky = mix(zenithCol, horizonCol, f*f);
+  sky += (g*g*g*0.2 + 0.2*h*h*h)*vec3(0.4,0.4,0.0);
+  #elif NLC_END_SKY == 2 
+  float f = (0.2*g + 0.8*smoothstep(1.0,-0.6,viewDir.y));
+  float h = (0.2*g + 0.8*smoothstep(0.5,-0.2,viewDir.y));
+  vec3 sky = mix(zenithCol, horizonCol, f*f);
+  sky += (g*g*g*g*0.8 + 0.2*h*h*h*h*h)*vec3(0.8,0.2,0.4);
+  #endif
+
+  return sky;
+}
+#endif
 
 vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_COLOR, float t) {
   vec3 sky;

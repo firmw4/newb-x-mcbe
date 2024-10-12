@@ -7,7 +7,7 @@
 #ifndef INSTANCING
   #include <newb/main.sh>
   uniform vec4 FogAndDistanceControl;
-  uniform vec4 ViewPositionAndTime.w;
+  uniform vec4 ViewPositionAndTime;
 #endif
 
 void main() {
@@ -29,7 +29,9 @@ void main() {
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTime.z);
 
-    skyColor += drawStars(skyColor, viewDir, ViewPositionAndTime.w) * mask;
+    // Call drawStars with mask calculated in the function
+    skyColor += drawStars(skyColor, viewDir, ViewPositionAndTime.w, env.rainFactor, v_fogColor);
+
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, v_fogColor, v_underwaterRainTime.z);
     #endif

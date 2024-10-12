@@ -78,6 +78,7 @@
 #define NL_RAIN_ZENITH_COL   vec3(0.520, 0.520, 0.700)
 #define NL_RAIN_HORIZON_COL  vec3(0.480, 0.500, 0.680)
 
+#define NLC_END_SKY 3
 #define NL_END_ZENITH_COL    vec3(0.020, 0.000, 0.043)
 #define NL_END_HORIZON_COL   vec3(0.280, 0.060, 0.820)
 
@@ -88,8 +89,8 @@
 
 /* Ore glow intensity */
 #define NL_GLOW_TEX 4.0    // 0.4 weak ~ 8.0 bright
-#define NL_GLOW_SHIMMER    // [toggle] shimmer effect
-#define NL_GLOW_LEAK 0.6 // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
+//#define NL_GLOW_SHIMMER    // [toggle] shimmer effect
+#define NL_GLOW_LEAK 0.6   // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
 /* Waving */
 #define NL_PLANTS_WAVE 0.05    // [toggle] 0.02 gentle ~ 0.4 violent
@@ -144,10 +145,14 @@
 #define NLC_CLOUD2_OPACITY 0.8
 #define NLC_CLOUD2_TRANSITION1 0.1001
 #define NLC_CLOUD2_TRANSITION2 0.1
-//#define NLC_CLOUD2_VOLUMETRIC     // [toggle] need some improvements
+
+#define NLC_DAY_CLOUD2_COL   vec3(0.72, 0.72, 0.75)
+#define NLC_NIGHT_CLOUD2_COL vec3(0.10, 0.121, 0.3)
+#define NLC_DAWN_CLOUD2_COL  vec3(0.63, 0.417, 0.3)
+#define NLC_RAIN_CLOUD2_COL  vec3(0.03, 0.08, 0.08)
 
 /* Aurora settings */
-#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA_VELOCITY 0.03 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.04    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.18    // 0.04 thin line ~ 0.4 thick lines
 #define NL_AURORA_COL1 vec3(0.1, 0.9, 1.0)
@@ -215,8 +220,10 @@
   #define NL_CLOUD_TYPE 0
 #endif
 
+/*
 #ifdef ALWAYS_REFLECTION
   #define NL_GROUND_REFL 0.6
 #endif
+*/
 
 #endif
