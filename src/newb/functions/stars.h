@@ -3,19 +3,16 @@
 
 #include "noise.h"
 
-// shooting star
-highp float star(highp vec2 x, float time) {
-    x = mul(x, mtxFromCols(vec2(cos(0.0), sin(0.0)), vec2(sin(0.0), -cos(0.5))));
-    x.y += time * 5.0;
+// Star drawing function
+vec3 drawStars(vec3 color, vec3 viewDir, float time) {
+  float t = 8.0; // threshold
+  float e = 100.0; // exposure
 
-    highp float shape = (1.0 - length(fract(x - vec2(0, 0.5)) - 0.5));
-    x *= vec2(1, 0.1);
+  float s = pow(clamp(randStars(viewDir * 200.0), 0.0, 1.0), t) * e;
+  s *= mix(0.4, 1.4, randStars(viewDir * 100.0 + vec3(time, time, time)));
 
-    highp vec2 fr = fract(x);
-    highp float random = step(hash(floor(x)), 0.01);
-    highp float tall = (1.0 - (abs(fr.x - 0.5) + fr.y * 0.5)) * random;
-
-    return clamp(clamp((shape - random) * step(hash(floor(x + vec2(0, 0.05))), 0.01), 0.0, 1.0) + tall, 0.0, 1.0);
+  // Apply star intensity to the color
+  return color + vec3(s * 2.0);
 }
 
 #endif

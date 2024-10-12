@@ -1,15 +1,15 @@
-name = "§l§6Newb §fX §6Pineapple§r"
-version = [0, 3, 0]
+name = "§l§9Newb Gemini§r"
+version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
-§7An aesthetic shader with a chill color theme§r
+§7Make your Minecraft with vibrant, dynamic lighting and an immersive atmosphere§r
 %v
 §c%w
 ''' # %w = patch warning, %v = version
-authors = ["firmw4", "devendrn"]
+authors = ["devendrn", "firmw4"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "4c356381-8e4a-4250-b1a6-4aa3ad2ebed6" # Use https://www.uuidgenerator.net/version4
-materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Actor"]
+uuid = "612cd0f1-2481-442b-a390-2e927ee66985" # Use https://www.uuidgenerator.net/version4
+materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
 
 [info] 
 copyright = '''
@@ -20,90 +20,63 @@ Copyright (c) %a
 credits = '''
 '''
 
-[custom]
+[description]
 label = '''
- - Highly recommended set brightness to 0-30
- - Don't use experimental features and education mode (or some bugs will occur)
- - Disable Vsync for better performance
- - Use ESSL300 fixlag pack for Snapdragon-only to reduce sutter and lag spike issue
- - §4some devices specifically experience a bug in cloud render cuttting§r
+Another variant to improve your Minecraft visual, dynamic lighting and immersive atmosphere. This variant uses visual inspiration and coloring from AI
 
-  >  §lCopyright (c)§r
-§oRedistribution of this resource pack with links other than the official ones provided by the creator is strictly prohibited.§r
+These are some things you should do:
+- Set brightness to 10-30
+- Set render distance to 8-12 to get better fog (short render distance = more fog)
+- Disable vsync for better performance
+- Don't use experimental feature and/or education edtion
 
-To find out about shader changes and updates, visit our discord server:
-https://discord.com/invite/chM7qTrGJT
-
-§lThanks for downloading and using this shader :)§r
-'''
-input = '''
+To find out about shader changes and updates, visit Newb Community discord server:
+https://discord.gg/newb-community-844591537430069279
 '''
 
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
 
+[[subpack]]
+define = "SOFT_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Soft Clouds
+'''
+
+[[subpack]]
+define = "BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+Box Clouds
+'''
 
 [[subpack]]
 define = "ALWAYS_REFLECTION"
 materials = ["RenderChunk"]
 description = '''
-§dAlways Reflection§r
-
-Summary: Ground reflection is always on and cloud reflection on water
+Always ground reflection
 '''
 
 [[subpack]]
-define = "CLOUD_REFLECTION"
+define = "NO_WAVE_NO_FOG"
 materials = ["RenderChunk"]
 description = '''
-§bCloud Reflection§r
-
-Summary: Enable cloud reflection on water
+No fog and wave effects
 '''
 
 [[subpack]]
-define = "R_MULTILAYER_CLOUD"
-materials = ["Clouds"]
+define = "NO_FOG"
+materials = ["RenderChunk"]
 description = '''
-§9Rounded Multilayer Cloud§r
-
-Summary: Rounded cloud style with extra layer
-'''
-
-[[subpack]]
-define = "V_MULTILAYER_CLOUD"
-materials = ["Clouds"]
-description = '''
-§1Vanilla Multilayer Cloud§r
-
-Summary: Vanilla cloud style with extra layer
-'''
-
-[[subpack]]
-define = "VANILLA_CLOUD"
-materials = ["Clouds"]
-description = '''
-§3Vanilla Cloud§r
-
-Summary: Change to vanilla clouds style
-'''
-
-[[subpack]]
-define = "SIMPLE_CLOUD"
-materials = ["Clouds"]
-description = '''
-§eSimple Cloud§r
-
-Summary: Change to simple soft clouds style
+No fog effect
 '''
 
 [[subpack]]
 define = "NO_WAVE"
 materials = ["RenderChunk"]
 description = '''
-§aNo Wave§r
-
-Summary: Disable wave effect
+No wave effects
 '''
 
 [[subpack]]
@@ -111,6 +84,4 @@ define = "DEFAULT"
 materials = []
 description = '''
 Default
-
-Summary: Rounded cloud style, waving effect and aurora at night
 '''

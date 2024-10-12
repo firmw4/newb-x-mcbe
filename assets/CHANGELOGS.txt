@@ -1,0 +1,28 @@
+[RELEASE]
+V1
+
+
+[BETA]
+240908
+- Initial build
+- Add cloud custom color
+- Ground reflection by default
+
+240910
+- Add subpack 'Lite'
+- Increase cloud scale a bit
+
+240921
+- Merge to latest source
+- Add shooting star from source
+- Add weather and stars materials
+- Refactor stars code
+- Disable twinkle star
+
+241012
+- Refactor some code
+- Some improvements
+- Enable glow leak
+- Remove stars materials
+- Add new sun/moon ray
+- Move ground reflection to subpack
