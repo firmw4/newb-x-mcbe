@@ -29,7 +29,9 @@ void main() {
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTime.z);
 
-    skyColor += drawStars(skyColor, viewDir, ViewPositionAndTime.w, env.rainFactor, v_fogColor);
+    #ifdef NLC_TWINKLING_STAR
+      skyColor += drawStar(skyColor, viewDir, ViewPositionAndTime.w, env.rainFactor, v_fogColor);
+    #endif
 
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, v_fogColor, v_underwaterRainTime.z);

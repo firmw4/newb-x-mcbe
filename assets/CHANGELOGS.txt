@@ -26,3 +26,7 @@ V1
 - Remove stars materials
 - Add new sun/moon ray
 - Move ground reflection to subpack
+
+241013
+- Fix some code
+- Add new sun/moon rays

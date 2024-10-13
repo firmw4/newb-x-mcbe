@@ -3,8 +3,7 @@ version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §7Make your Minecraft with vibrant, dynamic lighting and an immersive atmosphere§r
-%v
-§c%w
+§c%w - %v
 ''' # %w = patch warning, %v = version
 authors = ["devendrn", "firmw4"]
 url = "https://devendrn.github.io/newb-shader/"
@@ -22,10 +21,10 @@ credits = '''
 
 [custom]
 label = '''
-Another variant to improve your Minecraft visual, dynamic lighting and immersive atmosphere. This variant uses visual inspiration and coloring from AI
+§7Another variant to improve your Minecraft visual, dynamic lighting and immersive atmosphere. This variant uses visual inspiration and coloring from AI
 
-These are some things you should do:
-- Set brightness to 10-30
+§fThese are some things you should do:
+- Set brightness to 0-30
 - Set render distance to 8-12 to get better fog (short render distance = more fog)
 - Disable vsync for better performance
 - Don't use experimental feature and/or education edtion
@@ -39,7 +38,7 @@ https://discord.gg/newb-community-844591537430069279
 
 [[subpack]]
 define = "SOFT_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+materials = ["Clouds"]
 description = '''
 Soft Clouds
 '''

@@ -9,18 +9,23 @@ $output v_texcoord0, v_pos
 
 void main() {
   v_texcoord0 = a_texcoord0;
+
   #ifndef INSTANCING
     vec3 pos = a_position;
     v_pos = pos;
 
-    pos.xz *= NL_SUNMOON_SIZE*10.0;
-    #ifdef NL_SUNMOON_ANGLE
-      float angle = NL_SUNMOON_ANGLE*0.0174533;
-      float sinA = sin(angle);
-      float cosA = cos(angle);
-      pos.xz = vec2(pos.x*cosA - pos.z*sinA, pos.x*sinA + pos.z*cosA);
+    #ifdef NLC_FANCY_SUNMOON_RAYS
+    pos.xz *= NL_SUNMOON_SIZE * 10.0;
+    #else
+    pos.xz *= NL_SUNMOON_SIZE;
     #endif
 
+    #ifdef NL_SUNMOON_ANGLE
+      float angle = NL_SUNMOON_ANGLE * 0.0174533;
+      float sinA = sin(angle);
+      float cosA = cos(angle);
+      pos.xz = vec2(pos.x * cosA - pos.z * sinA, pos.x * sinA + pos.z * cosA);
+    #endif
 
     gl_Position = mul(u_modelViewProj, vec4(pos, 1.0));
   #else
