@@ -5,7 +5,7 @@ description = '''
 §7Make your Minecraft with vibrant, dynamic lighting and an immersive atmosphere§r
 §c%w - %v
 ''' # %w = patch warning, %v = version
-authors = ["devendrn", "firmw4"]
+authors = ["firmw4", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
 uuid = "612cd0f1-2481-442b-a390-2e927ee66985" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
@@ -36,6 +36,7 @@ https://discord.gg/newb-community-844591537430069279
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
 
+
 [[subpack]]
 define = "SOFT_CLOUDS"
 materials = ["Clouds"]
@@ -58,24 +59,66 @@ Always ground reflection
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog and wave effects
-'''
-
-[[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog effect
-'''
-
-[[subpack]]
 define = "NO_WAVE"
 materials = ["RenderChunk"]
 description = '''
 No wave effects
+'''
+
+[[subpack]]
+define = "LT_BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+lite box
+'''
+
+[[subpack]]
+define = "LT_SOFT_CLOUDS"
+materials = ["RenderChunk"]
+description = '''
+lite soft
+'''
+
+[[subpack]]
+define = "LT_AR"
+materials = ["RenderChunk"]
+description = '''
+lite ar
+'''
+
+[[subpack]]
+define = "LITE"
+materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
+description = '''
+lite
+'''
+
+[[subpack]]
+define = "UL_BOX_CLOUDS"
+materials = ["Clouds", "RenderChunk"]
+description = '''
+ultra box
+'''
+
+[[subpack]]
+define = "UL_SOFT_CLOUDS"
+materials = ["Clouds"]
+description = '''
+ultra soft
+'''
+
+[[subpack]]
+define = "UL_AR"
+materials = ["RenderChunk"]
+description = '''
+ultra ar
+'''
+
+[[subpack]]
+define = "ULTRA"
+materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
+description = '''
+ultra
 '''
 
 [[subpack]]

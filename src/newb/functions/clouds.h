@@ -125,11 +125,11 @@ vec4 renderClouds(vec3 vDir, vec3 vPos, float rain, float time, vec3 fogCol, vec
 vec4 renderAurora(vec3 p, float t, float rain, vec3 FOG_COLOR) {
   t *= NL_AURORA_VELOCITY;
   p.xz *= NL_AURORA_SCALE;
-  p.xz += 0.05*sin(p.x*4.0 + 20.0*t);
+  p.xz += 0.08*sin(p.x*4.0 + 20.0*t);
 
-  float d0 = sin(p.x*0.1 + t + sin(p.z*0.2));
-  float d1 = sin(p.z*0.1 - t + sin(p.x*0.2));
-  float d2 = sin(p.z*0.1 + 1.0*sin(d0 + d1*2.0) + d1*2.0 + d0*1.0);
+  float d0 = sin(p.x*0.2 + t + sin(p.z*0.2));
+  float d1 = sin(p.z*0.1 - t + sin(p.x*0.4));
+  float d2 = sin(p.z*0.1 + 1.0*sin(d0 + d1*1.0) + d1*2.0 + d0*2.0);
   d0 *= d0; d1 *= d1; d2 *= d2;
   d2 = d0/(1.0 + d2/NL_AURORA_WIDTH);
 

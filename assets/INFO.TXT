@@ -1,0 +1,45 @@
+NEWB x GEMINI created by firmw4
+Another variant to improve your Minecraft visual, dynamic lighting and immersive atmosphere. This variant uses visual inspiration and coloring from AI.
+
+There are several packages, including Normal, Ultra and Lite.
+Difference between Normal, Ultra and Lite:
+
+Normal
+  Default packages with wave effects, better fog, aurora and others
+Ultra
+  Enhanced normal version with Fancy SunMoon Godray, Twinkling Star and some upgraded features
+Lite
+  Remove and disable some features from the normal package, disable wave effects by default. For better performance
+
+
+
+CHANGELOGS:
+
+[STABLE RELEASES]
+V1
+
+
+[BETA BUILDS]
+240908
+- Initial build
+- Add cloud custom color
+- Ground reflection by default
+
+240910
+- Add subpack 'Lite'
+- Increase cloud scale a bit
+
+240921
+- Merge to latest source
+- Add shooting star from source
+- Add weather and stars materials
+- Refactor stars code
+- Disable twinkle star
+
+241012
+- Refactor some code
+- Some improvements
+- Enable glow leak
+- Remove stars materials
+- Add new sun/moon ray
+- Move ground reflection to subpack

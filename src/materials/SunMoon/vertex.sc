@@ -14,10 +14,10 @@ void main() {
     vec3 pos = a_position;
     v_pos = pos;
 
-    #ifdef NLC_FANCY_SUNMOON_RAYS
-    pos.xz *= NL_SUNMOON_SIZE * 10.0;
+    #ifdef NLC_FANCY_SUNMOON_RAY
+      pos.xz *= NL_SUNMOON_SIZE * 10.0;
     #else
-    pos.xz *= NL_SUNMOON_SIZE;
+      pos.xz *= NL_SUNMOON_SIZE;
     #endif
 
     #ifdef NL_SUNMOON_ANGLE
