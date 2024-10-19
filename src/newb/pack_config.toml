@@ -1,4 +1,4 @@
-name = "§l§9NEWB §fx §9GEMINI§r"
+name = "§l§9NEWB §fx §9GEMINI§f - LITE"
 version = [0, 1, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
@@ -56,69 +56,6 @@ define = "ALWAYS_REFLECTION"
 materials = ["RenderChunk"]
 description = '''
 Always ground reflection
-'''
-
-[[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
-description = '''
-No wave effects
-'''
-
-[[subpack]]
-define = "LT_BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-lite box
-'''
-
-[[subpack]]
-define = "LT_SOFT_CLOUDS"
-materials = ["RenderChunk"]
-description = '''
-lite soft
-'''
-
-[[subpack]]
-define = "LT_AR"
-materials = ["RenderChunk"]
-description = '''
-lite ar
-'''
-
-[[subpack]]
-define = "LITE"
-materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
-description = '''
-lite
-'''
-
-[[subpack]]
-define = "UL_BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-ultra box
-'''
-
-[[subpack]]
-define = "UL_SOFT_CLOUDS"
-materials = ["Clouds"]
-description = '''
-ultra soft
-'''
-
-[[subpack]]
-define = "UL_AR"
-materials = ["RenderChunk"]
-description = '''
-ultra ar
-'''
-
-[[subpack]]
-define = "ULTRA"
-materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Weather", "Actor"]
-description = '''
-ultra
 '''
 
 [[subpack]]
