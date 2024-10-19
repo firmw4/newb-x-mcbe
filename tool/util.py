@@ -44,7 +44,7 @@ def create_pack_manifest(config: dict) -> dict:
         'modules': [
             {
                 'type': 'resources',
-                'uuid': '8e745b9f-ec80-45c1-bdc3-578ab7cbd4b6',
+                'uuid': '719cd6bd-53b2-4446-a2d4-fcf8973e2bea',
                 'version': config['version']
             }
         ],
