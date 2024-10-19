@@ -15,7 +15,7 @@ vec3 drawStar(vec3 color, vec3 viewDir, float time, vec3 fogColor, nl_environmen
   float s = pow(clamp(randStar(viewDir*200.0), 0.0, 1.0), t) * e;
   s *= mix(0.4, 1.4, randStar(viewDir*100.0 + vec3(time, time, time)));
 
-  return color + vec3(s*2.0) * mask;
+  return color + vec3(s*2.0, s*2.0, s*2.0) * mask;
 }
 
 #endif
