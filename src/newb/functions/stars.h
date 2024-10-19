@@ -17,6 +17,6 @@ vec3 drawStar(vec3 color, vec3 viewDir, float time, float rainFactor, vec3 fogCo
 
   color = NLC_STAR_COLOR * s * fogColor.rgb * (1.0 - rainFactor);
 
-  return color + (vec3(s, s, s) * NLC_STAR_BRIGHTNESS) * mask;
+  return color + vec3(s, s, s) * mask;
 }
 #endif

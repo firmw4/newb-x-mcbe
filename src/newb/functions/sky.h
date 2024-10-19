@@ -72,8 +72,7 @@ vec3 renderOverworldSky(nl_skycolor skycol, vec3 viewDir) {
   float h = 1.0-viewDir.y*viewDir.y;
   float hsq = h*h;
   if (viewDir.y < 0.0) {
-    hsq *= hsq*hsq;
-    hsq *= hsq;
+    hsq = 0.4 + 0.6*hsq*hsq;
   }
 
   // gradient 1  h^16
@@ -121,7 +120,7 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
   float g = h*h;
   g *= g;
 
-  vec3 mixHorizon = mix(horizonCol, vec3(0.4, 0.1, 0.8), 1.0);
+  vec3 mixHorizon = mix(horizonCol, vec3(0.4, 0.2, 0.8), 1.0);
   
   vec3 sky = mix(zenithCol, mixHorizon, f*f);
   sky += (0.1*streaks + 2.0*g*g*g + h*h*h) * mixHorizon;
