@@ -7,6 +7,7 @@
 #ifndef INSTANCING
   #include <newb/main.sh>
   uniform vec4 FogAndDistanceControl;
+  uniform vec4 ViewPositionAndTime;
 #endif
 
 void main() {
@@ -27,9 +28,15 @@ void main() {
     }
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTime.z);
+
+    #ifdef NLC_TWINKLING_STAR
+      skyColor += drawStar(skyColor, viewDir, ViewPositionAndTime.w, v_fogColor, env.rainFactor);
+    #endif
+
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, v_fogColor, v_underwaterRainTime.z);
     #endif
+
     skyColor = colorCorrection(skyColor);
 
     gl_FragColor = vec4(skyColor, 1.0);

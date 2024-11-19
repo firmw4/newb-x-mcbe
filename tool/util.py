@@ -1,7 +1,6 @@
 import os
 from rich.console import Console
 
-
 def print_styled_error(console: Console, log: str):
     log = log.strip().split('\n')
     for line in log[:-2]:
@@ -44,8 +43,14 @@ def create_pack_manifest(config: dict) -> dict:
         'modules': [
             {
                 'type': 'resources',
-                'uuid': '900f3d8b-37b4-465f-8f56-941687e36c35',
+                'uuid': 'b6b3b6b1-fda3-4e05-bf4a-ff1887fa3d1d',
                 'version': config['version']
+            }
+        ],
+        'settings': [
+            {
+                'type': 'label',
+                'text': config['custom']['label']
             }
         ],
         'subpacks': [],

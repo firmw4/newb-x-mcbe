@@ -77,7 +77,7 @@ void nlWave(
   bool isColored, float camDist, bool isTreeLeaves
 ) {
 
-  if (camDist > 13.0) {  // only wave nearby (better performance)
+  if (camDist > 12.0) {  // only wave nearby (better performance)
     return;
   }
 

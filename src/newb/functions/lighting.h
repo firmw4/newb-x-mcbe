@@ -73,8 +73,11 @@ vec3 nlLighting(
 
     // shadow cast by top light
     float shadow = step(0.93, uv1.y);
-    shadow = max(shadow, (1.0 - NL_SHADOW_INTENSITY + (0.6*NL_SHADOW_INTENSITY*nightFactor))*lit.y);
+    shadow = max(shadow, (1.0 - NL_SHADOW_INTENSITY + (0.9 * NL_SHADOW_INTENSITY * nightFactor)) * lit.y);
     shadow *= shade > 0.8 ? 1.0 : 0.8;
+
+    // Makes the shadow transitions rougher
+    // shadow = ceil(shadow * 2.0) * 0.5; // Disturbing sky horizon (need fixing)
 
     // shadow cast by simple cloud
     #ifdef NL_CLOUD_SHADOW
@@ -102,6 +105,12 @@ vec3 nlLighting(
 
   return light;
 }
+
+
+float calculateShadow(vec2 lightmapUV) {
+  return smoothstep(0.875, 0.860, pow(lightmapUV.y, 2.0));
+}
+
 
 void nlUnderwaterLighting(inout vec3 light, inout vec3 pos, vec2 lit, vec2 uv1, vec3 tiledCpos, vec3 cPos, highp float t, vec3 horizonCol) {
   if (uv1.y < 0.9) {
@@ -157,7 +166,6 @@ float nlEntityEdgeHighlight(vec4 edgemap) {
   float ambient = len.x + len.y*(1.0-len.x);
   return NL_ENTITY_BRIGHTNESS + ambient*NL_ENTITY_EDGE_HIGHLIGHT;
 }
-
 vec4 nlEntityEdgeHighlightPreprocess(vec2 texcoord) {
   vec4 edgeMap = fract(vec4(texcoord*128.0, texcoord*256.0));
   return 2.0*step(edgeMap, vec4_splat(0.5)) - 1.0;

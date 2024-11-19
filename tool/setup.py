@@ -3,6 +3,7 @@ import zipfile
 import signal
 import platform
 import shutil
+from rich.console import Console
 from functools import partial
 from threading import Event
 from urllib.request import urlopen

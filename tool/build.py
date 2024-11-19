@@ -1,4 +1,5 @@
 import os
+import platform
 from rich.console import Console
 from importlib import import_module
 from lazurite.compiler.macro_define import MacroDefine
@@ -9,9 +10,6 @@ status = console.status("[bold green]Building...")
 
 
 def _lp_print_override(m):
-    if m.startswith("Warning"):
-        console.print(m, style='bold red')
-        exit(1)
     console.print(m, style='bold cyan')
     status.update("[bold green]Building " + m)
 
@@ -24,13 +22,8 @@ lp.print = _lp_print_override
 def run(args):
     output_path = os.path.join('build', args.p)
     shaderc_path = os.path.join('tool', 'data', 'shaderc')
-    if os.name == 'nt':
+    if platform.os == 'nt':
         shaderc_path += '.exe'
-    src_materials_eg_path = os.path.join('tool', 'data', 'materials', 'Sky.material.json')
-
-    if not (os.path.exists(shaderc_path) and os.path.exists(src_materials_eg_path)):
-        console.print(f"Error: 'setup' not done", style="bold red")
-        exit(1)
 
     materials_pattern = []
     if not args.m == "":

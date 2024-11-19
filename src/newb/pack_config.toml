@@ -1,15 +1,13 @@
-name = "Newb X Legacy"
-version = [0, 15, 0]
+name = "§lNewb §6Pineapple§r Σ"
+version = [0, 4, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
-§c%w
-§7- An enchanced vanilla shader for Minecraft!
-%v
-§3https://devendrn.github.io/newb-shader/
+§7Another newb variants to improve your minecraft visual with bright lighting, low saturation, soft shadow, foggy environment and immersive bloom.§r
+%v - §c%w§r
 ''' # %w = patch warning, %v = version
-authors = ["devendrn"]
+authors = ["firmw4", "devendrn"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
+uuid = "8c0f6d33-73e1-44d5-982b-892e4d997ec74aa3ad2ebed6" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -21,49 +19,104 @@ Copyright (c) %a
 credits = '''
 '''
 
+[custom]
+label = '''
+ - Highly recommended set brightness under 30
+ - Low render chunk for better fog experience
+ - Don't use experimental features and education mode (or some bugs will occur)
+ - Disable Vsync for better performance
+ - §7Use ESSL300 fixlag pack for Snapdragon-only to reduce sutter and lag spike issue§r
+ - §4some devices specifically experience a bug in cloud render cuttting§r
+
+§7Thanks for downloading and using this shader :)§r
+'''
+input = '''
+'''
+
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
 
+
 [[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
+define = "ALWAYS_REFLECTION"
+materials = ["RenderChunk"]
 description = '''
-Rounded Clouds
+Always Reflection
+
+Summary: Ground reflection is always on and cloud reflection on water
 '''
 
 [[subpack]]
-define = "BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+define = "ROUNDED_MULTILAYER"
+materials = ["RenderChunk", "Clouds"]
 description = '''
-Box Clouds
+Rounded Multilayer Cloud
+
+Summary: Add one more layer for rounded cloud style
 '''
+
+[[subpack]]
+define = "BOX_MULTILAYER"
+materials = ["RenderChunk", "Clouds"]
+description = '''
+Box Multilayer Cloud
+
+Summary: Add one more layer for box cloud style
+'''
+
+[[subpack]]
+define = "BOX_CLOUD"
+materials = ["RenderChunk", "Clouds"]
+description = '''
+Box Cloud
+
+Summary: Change to box cloud style
+'''
+
+[[subpack]]
+define = "SIMPLE_CLOUD"
+materials = ["RenderChunk", "Clouds"]
+description = '''
+Simple Cloud
+
+Summary: Change to simple soft cloud style
+'''
+
 
 [[subpack]]
 define = "CHUNK_ANIM"
 materials = ["RenderChunk"]
 description = '''
-Chunk loading animation
+Chunk Anim
+
+Summary: Chunk loading animation
 '''
 
 [[subpack]]
 define = "NO_WAVE_NO_FOG"
 materials = ["RenderChunk"]
 description = '''
-No fog and wave effects
+No Fog No Wave
+
+Summary: No fog and wave effects
 '''
 
 [[subpack]]
 define = "NO_FOG"
 materials = ["RenderChunk"]
 description = '''
-No fog effect
+No Fog
+
+Summary: Disable fog render
 '''
 
 [[subpack]]
 define = "NO_WAVE"
 materials = ["RenderChunk"]
 description = '''
-No wave effects
+No Wave
+
+Summary: Disable wave effects
 '''
 
 [[subpack]]
@@ -71,4 +124,6 @@ define = "DEFAULT"
 materials = []
 description = '''
 Default
+
+Summary: Rounded cloud style, waving effect, twinkling star, cloud reflection and aurora at night
 '''

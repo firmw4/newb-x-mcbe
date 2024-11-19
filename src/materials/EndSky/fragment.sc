@@ -12,10 +12,13 @@ $input v_texcoord0, v_posTime
 
 void main() {
   #ifndef INSTANCING
+    vec3 starDir = normalize(v_posTime.xyz);
     vec4 diffuse = texture2D(s_SkyTexture, v_texcoord0);
 
     vec3 color = renderEndSky(getEndHorizonCol(), getEndZenithCol(), normalize(v_posTime.xyz), v_posTime.w);
-    color += 2.8*diffuse.rgb; // stars
+    // color += 2.8 * diffuse.rgb;
+
+    color.rgb += drawTheEndStar(color, starDir, v_posTime.w);
 
     color = colorCorrection(color);
 

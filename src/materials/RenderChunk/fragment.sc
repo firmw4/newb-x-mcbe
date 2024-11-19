@@ -44,6 +44,11 @@ void main() {
     diffuse.a = 1.0;
   #endif
 
+  #ifdef NLC_SHARP_SHADOW
+    float shadow = calculateShadow(v_lightmapUV);
+    diffuse.rgb *= 1.0 - 0.4 * shadow;
+  #endif
+
   diffuse.rgb *= color.rgb;
   diffuse.rgb += glow;
 

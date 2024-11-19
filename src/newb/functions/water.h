@@ -45,12 +45,17 @@ vec4 nlWater(
 
         #ifdef NL_AURORA
           vec4 aurora = renderAurora(projectedPos.xyy, t, env.rainFactor, FOG_COLOR);
-          waterRefl += 2.0*aurora.rgb*aurora.a*fade;
+          waterRefl += 3.0*aurora.rgb*aurora.a*fade;
         #endif
 
         #if NL_CLOUD_TYPE == 1
           vec4 clouds = renderCloudsSimple(skycol, projectedPos.xyy, t, env.rainFactor);
           waterRefl = mix(waterRefl, 1.5*clouds.rgb, clouds.a*fade);
+        #endif
+
+        #if NL_CLOUD_TYPE == 2
+          vec4 clouds = renderClouds(viewDir, projectedPos.xyy, env.rainFactor, t, FOG_COLOR, skycol.horizonEdge);
+          waterRefl = mix(waterRefl, 4.0*clouds.rgb, clouds.a*fade);
         #endif
       }
     #endif
@@ -58,9 +63,11 @@ vec4 nlWater(
     // torch light reflection
     waterRefl += torchColor*NL_TORCH_INTENSITY*(lit.x*lit.x + lit.x)*bump*10.0;
 
+    // Reflection calculation with reduced influence of NL_WATER_REFL_MASK
     #ifdef NL_WATER_REFL_MASK
-    float mask = 0.15+0.08*sin(viewDir.x*12.0 + 31.4*bump);
-    waterRefl *= 0.3+0.7*smoothstep(mask,0.2+mask,viewDir.y);
+    // Minimize reflection impact based on distance to the camera
+      float reflectionInfluence = 1.0 - smoothstep(10.0, 100.0, camDist); // Reduce reflection over distance
+      waterRefl *= reflectionInfluence; // Scale down reflection effect over distance
     #endif
 
     if (fractCposY>0.8 || fractCposY<0.9) { // flat plane
@@ -87,10 +94,13 @@ vec4 nlWater(
 
   color.rgb *= 0.22*NL_WATER_TINT*(1.0-0.8*fresnel);
 
+  // Apply fog fade to reduce transparency and enhance fog effect
   #ifdef NL_WATER_FOG_FADE
-    color.a *= NL_WATER_TRANSPARENCY;
+    // Increase transparency with distance for fog effect
+    float fogInfluence = smoothstep(5.0, 30.0, camDist); // Fog becomes stronger over distance
+    color.a = mix(color.a, NL_WATER_TRANSPARENCY * fogInfluence, fogInfluence); // Blend transparency based on fog
   #else
-    color.a = COLOR.a*NL_WATER_TRANSPARENCY;
+    color.a = COLOR.a * NL_WATER_TRANSPARENCY;
   #endif
 
   color.a += (1.0-color.a)*opacity*opacity;

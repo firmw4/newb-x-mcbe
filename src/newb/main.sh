@@ -9,6 +9,7 @@
 #include "functions/detection.h"
 #include "functions/fog.h"
 #include "functions/sky.h"
+#include "functions/stars.h"
 #include "functions/clouds.h"
 #include "functions/lighting.h"
 #include "functions/water.h"
