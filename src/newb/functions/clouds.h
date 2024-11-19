@@ -136,11 +136,11 @@ vec4 renderAurora(vec3 p, float t, float rain, vec3 FOG_COLOR) {
   vec3 auroraColor = mix(NL_AURORA_COL1, NL_AURORA_COL2, d1);
   auroraColor = mix(auroraColor, NL_AURORA_COL1 * vec3(0.6, 0.8, 1.2), d3);
 
-  // avoiding white discoloration on aurora
-  vec3 avgLuminance = vec3(dot(auroraColor, NL_AURORA_COL1));
-  auroraColor = mix(avgLuminance, auroraColor, 1.0); // don't change this value
+  // average luminance
+  float lumi = dot(auroraColor, NL_AURORA_COL1);
+  auroraColor = mix(vec3(lumi, lumi, lumi), auroraColor, 1.0);
 
-  float mask = (1.0 - 0.8 * rain) * max(1.0 - 4.0 * max(FOG_COLOR.b, FOG_COLOR.g), 0.0);
+  float mask = (1.0-0.8 * rain) * max(1.0-4.0 * max(FOG_COLOR.b, FOG_COLOR.g), 0.0);
   auroraColor *= NL_AURORA;
 
   return vec4(auroraColor, 1.0) * d2 * mask;
