@@ -192,8 +192,8 @@
 #define NLC_RAIN_CLOUD2_COL  vec3(0.001, 0.125, 0.300)
 
 /* Star */
-#define NLC_TWINKLING_STAR 2.0      // [toggle] 1.0 default - 2.0 birghter more stars at night
-#define NLC_END_TWINKLING_STAR 2.0  // [toggle] 1.0 default - 2.0 birghter more stars at the end
+#define NLC_TWINKLING_STAR 1.2      // [toggle] 1.0 default - 4.0 birghter more stars at night
+#define NLC_END_TWINKLING_STAR 1.6  // [toggle] 1.0 default - 4.0 birghter more stars at the end
 
 /* Sun/Moon */
 //#define NLC_ENABLE_SUNMOON_COLORCORRECTION // [toggle] enable color correction
