@@ -2,14 +2,12 @@
   "biomes": {
     "basalt_deltas" : {
       "fog_identifier" : "newb:fog_basalt_deltas",
-      "fog_ids_to_merge" : [ "newb:fog_basalt_deltas" ],
       "inherit_from_prior_fog" : false,
       "water_surface_color" : "#3f76e4",
       "water_surface_transparency": 0.5
     },
     "crimson_forest" : {
       "fog_identifier" : "newb:fog_crimson_forest",
-      "fog_ids_to_merge" : [ "newb:fog_crimson_forest" ],
       "inherit_from_prior_fog" : false,
       "water_surface_color" : "#905957",
       "water_surface_transparency": 0.5
@@ -19,14 +17,12 @@
     },
     "hell" : {
       "fog_identifier" : "newb:fog_hell",
-      "fog_ids_to_merge" : [ "newb:fog_hell" ],
       "inherit_from_prior_fog" : false,
       "water_surface_color" : "#905957",
       "water_surface_transparency": 0.5
     },
     "soulsand_valley" : {
       "fog_identifier" : "newb:fog_soulsand_valley",
-      "fog_ids_to_merge" : [ "newb:fog_soulsand_valley" ],
       "inherit_from_prior_fog" : false,
       "water_surface_color" : "#905957",
       "water_surface_transparency": 0.5
@@ -42,7 +38,6 @@
     },
     "warped_forest" : {
       "fog_identifier" : "newb:fog_warped_forest",
-      "fog_ids_to_merge" : [ "newb:fog_warped_forest" ],
       "inherit_from_prior_fog" : false,
       "water_surface_color" : "#905957",
       "water_surface_transparency": 0.5
