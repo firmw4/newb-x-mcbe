@@ -92,7 +92,7 @@
 #define NL_GLOW_LEAK    0.5  // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
 /* Waving */
-#define NL_PLANTS_WAVE   0.14  // [toggle] 0.02 gentle ~ 0.4 violent
+#define NL_PLANTS_WAVE   0.06  // [toggle] 0.02 gentle ~ 0.4 violent
 #define NL_LANTERN_WAVE  0.12  // [toggle] 0.05 subtle ~ 0.4 large swing
 #define NL_WAVE_SPEED    1.20  // 0.5 slow wave ~ 5.0 very fast wave
 //#define NL_EXTRA_PLANTS_WAVE  // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
@@ -192,8 +192,8 @@
 #define NLC_RAIN_CLOUD2_COL  vec3(0.001, 0.125, 0.300)
 
 /* Star */
-#define NLC_TWINKLING_STAR 1.2      // [toggle] 1.0 default - 4.0 birghter more stars at night
-#define NLC_END_TWINKLING_STAR 1.6  // [toggle] 1.0 default - 4.0 birghter more stars at the end
+#define NLC_TWINKLING_STAR 1.8      // [toggle] 1.0 default - 4.0 birghter more stars at night
+#define NLC_END_TWINKLING_STAR 2.0  // [toggle] 1.0 default - 4.0 birghter more stars at the end
 
 /* Sun/Moon */
 //#define NLC_ENABLE_SUNMOON_COLORCORRECTION // [toggle] enable color correction
